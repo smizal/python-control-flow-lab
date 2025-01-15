@@ -172,7 +172,7 @@ weather_advice()
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 print('\n')
-print("--- 5: What's the Season?")
+print("--- Exercise 5: What's the Season?")
 def determine_season():
     # Your control flow logic goes here
     month = input("Enter the month of the year (Jan - Dec): ").lower()
@@ -198,3 +198,53 @@ def determine_season():
         print('Error: not a valid age number')
 # Call the function
 determine_season()
+
+# ------------------------------------------------------------
+# Exercise 7: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+print('\n')
+print("--- Exercise 7: Number Guessing Game")
+def guess_number():
+    # Your control flow logic goes here
+    TARGET = 42
+    attempt = 1
+    success = False
+    while attempt <= 5:
+        if attempt == 5:
+            print("Last chance!")
+        number = input('guess a number within a range (1 to 100) : ')
+        try:
+            number = int(number)
+            if number < TARGET:
+                print("Guess is low")
+            elif number > TARGET:
+                print("Guess is high")
+            else:
+                success = True
+                break
+        except ValueError:
+            print('Error: not a valid number')
+        attempt += 1
+    if success:
+        print('Congratulations, you guessed correctly!')
+    else:
+        print('Sorry, you failed to guess the number in five attempts.')
+# Call the function
+guess_number()
+
+
